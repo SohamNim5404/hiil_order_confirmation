@@ -1,0 +1,124 @@
+@Metadata.layer: #CORE
+@UI.createHidden: true
+
+annotate entity ZC_ORDER_SCRAP with
+{
+  @UI.facet: [
+    {
+      id: 'General',
+      purpose: #STANDARD,
+      type: #FIELDGROUP_REFERENCE,
+      targetQualifier: 'GENERAL',
+      label: 'Scrap Material',
+      position: 10
+    }
+  ]
+
+  @UI.hidden: true
+  ScrapItemId;
+
+  @UI.hidden: true
+  ConfirmId;
+
+  @EndUserText.label: 'Scrap Material'
+  @UI.lineItem: [
+    {
+      position: 10,
+      label: 'Scrap Material'
+    }
+  ]
+  @UI.fieldGroup: [
+    {
+      qualifier: 'GENERAL',
+      position: 10
+    }
+  ]
+  ScrapMaterial;
+
+ @EndUserText.label: 'Scrap Description'
+  @UI.lineItem: [
+    {
+      position: 15,
+      label: 'Scrap Description'
+    }
+  ]
+  @UI.fieldGroup: [
+    {
+      qualifier: 'GENERAL',
+      position: 15
+    }
+  ]
+  Scrapdesc;
+  
+  @EndUserText.label: 'Storage Loc.'
+  @UI.lineItem: [
+    {
+      position: 20,
+      label: 'Storage Loc.'
+    }
+  ]
+  @UI.fieldGroup: [
+    {
+      qualifier: 'GENERAL',
+      position: 20
+    }
+  ]
+  StorageLocation;
+
+  @EndUserText.label: 'Scrap Qty'
+  @UI.lineItem: [
+    {
+      position: 30,
+      label: 'Scrap Qty'
+    }
+  ]
+  @UI.fieldGroup: [
+    {
+      qualifier: 'GENERAL',
+      position: 30
+    }
+  ]
+  ScrapQty;
+  
+//   @EndUserText.label: 'Scrap Unit'
+//  @UI.lineItem: [
+//    {
+//      position: 35,
+//      label: 'Scrap Unit'
+//    }
+//  ]
+//  @UI.fieldGroup: [
+//    {
+//      qualifier: 'GENERAL',
+//      position: 35
+//    }
+//  ]
+//  Scrapunit;
+  
+    @EndUserText.label: 'Scrap Unit'
+  @UI.lineItem: [
+    {
+      position: 35,
+      label: 'Scrap Unit'
+    }
+  ]
+  @UI.fieldGroup: [
+    {
+      qualifier: 'GENERAL',
+      position: 35
+    }
+  ]
+  DisplayScrapUnit;
+
+  @UI.hidden: true
+  CreatedBy;
+
+  @UI.hidden: true
+  CreatedAt;
+
+  @UI.hidden: true
+  ChangedBy;
+
+  @UI.hidden: true
+  ChangedAt;
+}

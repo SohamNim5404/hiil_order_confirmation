@@ -1,0 +1,105 @@
+@Metadata.layer: #CORE
+@UI.createHidden: true
+@UI.deleteHidden: true
+@UI.presentationVariant: [
+  {
+    sortOrder: [
+      {
+        by: 'ActivitySlot',
+        direction: #ASC
+      }
+    ],
+    visualizations: [
+      { type: #AS_LINEITEM }
+    ]
+  }
+]
+
+annotate entity ZC_ORDER_ACTIVITY with
+{
+  @UI.facet: [
+    {
+      id: 'General',
+      purpose: #STANDARD,
+      type: #FIELDGROUP_REFERENCE,
+      targetQualifier: 'GENERAL',
+      label: 'Production Activity',
+      position: 10
+    }
+  ]
+
+  @UI.hidden: true
+  ActivityId;
+
+  @UI.hidden: true
+  ConfirmId;
+
+  @UI.hidden: true
+  Operation;
+
+  @UI.hidden: true
+  ActivitySlot;
+
+  @UI.hidden: true
+  ActivityParam;
+
+  @EndUserText.label: 'Production Activity'
+  @UI.lineItem: [
+    {
+      position: 10,
+      label: 'Production Activity'
+    }
+  ]
+  @UI.fieldGroup: [
+    {
+      qualifier: 'GENERAL',
+      position: 10
+    }
+  ]
+  ActivityLabel;
+
+  @EndUserText.label: 'Activity Name'
+  @UI.lineItem: [
+    {
+      position: 20,
+      label: 'Activity Name'
+    }
+  ]
+  @UI.fieldGroup: [
+    {
+      qualifier: 'GENERAL',
+      position: 20
+    }
+  ]
+  ActivityName;
+
+  @EndUserText.label: 'Qty'
+  @UI.lineItem: [
+    {
+      position: 30,
+      label: 'Qty'
+    }
+  ]
+  @UI.fieldGroup: [
+    {
+      qualifier: 'GENERAL',
+      position: 30
+    }
+  ]
+  ActivityQty;
+
+  @EndUserText.label: 'Unit'
+  @UI.lineItem: [
+    {
+      position: 40,
+      label: 'Unit'
+    }
+  ]
+  @UI.fieldGroup: [
+    {
+      qualifier: 'GENERAL',
+      position: 40
+    }
+  ]
+  DisplayActivityUnit;
+}

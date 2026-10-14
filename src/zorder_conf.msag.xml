@@ -1,0 +1,631 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZORDER_CONF</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>Message class</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Production order not found</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>No remaining quantity,Cannot create order.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Unable to read loaded serial numbers</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT> Remove loaded serial rows before changing the source material</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Quantities cannot be negative</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Yield plus scrap plus loading rejection cannot exceed remaining quantity</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>Unable to read serial numbers</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>A serial number cannot be both approved and rejected</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>Required &amp; approved/&amp; rejected; selected &amp; approved/&amp; rejected</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>Click Edit before loading serial numbers</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>011</MSGNR>
+     <TEXT>Please enter or fetch the Order Number first</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>012</MSGNR>
+     <TEXT>Please select a material before fetching serial numbers</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>013</MSGNR>
+     <TEXT>Please fetch order data before selecting a material</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>014</MSGNR>
+     <TEXT>Please fetch the header material first</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>015</MSGNR>
+     <TEXT>No serial numbers found for order &amp;.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>016</MSGNR>
+     <TEXT>Assign glazed serial &amp; to a kiln serial number</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>017</MSGNR>
+     <TEXT>Multiple kiln mappings found for glazed serial &amp;.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>018</MSGNR>
+     <TEXT>Mapped kiln material does not match the header material</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>019</MSGNR>
+     <TEXT>Draft serials differ from kiln mapping; remove rows and fetch again</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>020</MSGNR>
+     <TEXT>Save the record before Submit and Post</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>021</MSGNR>
+     <TEXT>Enter the order number</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>022</MSGNR>
+     <TEXT>Enter the operation</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>023</MSGNR>
+     <TEXT>Enter the posting date</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>024</MSGNR>
+     <TEXT>Fetch the confirmation unit first</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>025</MSGNR>
+     <TEXT>Yield and scrap quantities cannot be negative</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>026</MSGNR>
+     <TEXT>Enter a yield or scrap quantity greater than zero</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>027</MSGNR>
+     <TEXT>Could not read selected serials before confirmation posting</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>028</MSGNR>
+     <TEXT>Only a CREATED confirmation can be submitted and posted</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>029</MSGNR>
+     <TEXT>A serial cannot be both approved and rejected</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>030</MSGNR>
+     <TEXT>Select a reason for every rejected serial before posting</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>031</MSGNR>
+     <TEXT>Serial selection must match yield, scrap and loading rejection quantities</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>032</MSGNR>
+     <TEXT>Yield plus scrap plus loading rejection exceeds remaining order quantity</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>033</MSGNR>
+     <TEXT>Scrap item quantities cannot be negative</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>034</MSGNR>
+     <TEXT>Enter material and storage location for scrap items</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>035</MSGNR>
+     <TEXT>Unable to read production activities</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>036</MSGNR>
+     <TEXT>Activity quantity cannot be negative</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>037</MSGNR>
+     <TEXT>Enter a unit for the activity quantity</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>038</MSGNR>
+     <TEXT>Activity number must be between 1 and 6</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>039</MSGNR>
+     <TEXT>Save the record before posting</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>040</MSGNR>
+     <TEXT>Loaded serials are already posted</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>041</MSGNR>
+     <TEXT>Please complete Submit and Post before posting loaded serials</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>042</MSGNR>
+     <TEXT>Order number is required</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>043</MSGNR>
+     <TEXT>Material is required</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>044</MSGNR>
+     <TEXT>Plant is required</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>045</MSGNR>
+     <TEXT>Posting date is required</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>046</MSGNR>
+     <TEXT>Quantity to confirm must be greater than zero</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>047</MSGNR>
+     <TEXT> No valuation found for material &amp; in plant &amp;.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>048</MSGNR>
+     <TEXT>Material &amp; has zero standard price in plant &amp;; serial posting blocked</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>049</MSGNR>
+     <TEXT>Unable to read serial numbers or scrap details</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>050</MSGNR>
+     <TEXT> Storage location not found in manufacturing order item</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>051</MSGNR>
+     <TEXT> No approved serial numbers for this material</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>052</MSGNR>
+     <TEXT>An approved serial number is empty</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>053</MSGNR>
+     <TEXT>Duplicate approved serial numbers found</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>054</MSGNR>
+     <TEXT> Approved serial count must equal quantity to confirm</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>055</MSGNR>
+     <TEXT>Save the record before cancellation</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>056</MSGNR>
+     <TEXT>Only a partially posted or posted confirmation can be cancelled</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>057</MSGNR>
+     <TEXT>Original confirmation identifiers are missing</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>058</MSGNR>
+     <TEXT>Loaded serials have not been posted or are already cancelled</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>059</MSGNR>
+     <TEXT>Original material document identifiers are missing</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>060</MSGNR>
+     <TEXT>Loading Rejection quantity differs from serial count; correct it first</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>061</MSGNR>
+     <TEXT>Maintain one valid kiln mapping for loading-rejected glazed serial &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>062</MSGNR>
+     <TEXT> Loading-rejected serial &amp; has no reason; correct Loading Rejection first</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>063</MSGNR>
+     <TEXT> Loading Rejection contains duplicate target serial &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>064</MSGNR>
+     <TEXT> Loading Rejection changed or was used; fetch order data and serials agai</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>065</MSGNR>
+     <TEXT>Loading-rejected serial &amp; details changed; fetch serial numbers again</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>066</MSGNR>
+     <TEXT>Fetch loading-rejected serial &amp; before saving or posting</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>067</MSGNR>
+     <TEXT>Loading rejection for serial &amp; changed. Fetch Serial Numbers again</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>068</MSGNR>
+     <TEXT>Serials could not be checked for Loading Rejection</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>069</MSGNR>
+     <TEXT>Parent confirmation could not be checked</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>070</MSGNR>
+     <TEXT>Loading rejection serials could not be checked</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>071</MSGNR>
+     <TEXT>Click Fetch Order Data before saving</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>072</MSGNR>
+     <TEXT>Please enter Order Number</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>073</MSGNR>
+     <TEXT>Order &amp; not found</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>074</MSGNR>
+     <TEXT>USE CO11N FOR CONFIRMATION</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>075</MSGNR>
+     <TEXT>RELEASE PRODUCTION ORDER &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>076</MSGNR>
+     <TEXT>Kindly assign batch from production order &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>077</MSGNR>
+     <TEXT>Order &amp; is already confirmed</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>078</MSGNR>
+     <TEXT>Multiple operation records found; refine the operation selection</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>079</MSGNR>
+     <TEXT>Operation reference quantity must be greater than zero</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>080</MSGNR>
+     <TEXT>Unable to read existing activity rows</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>081</MSGNR>
+     <TEXT>Order &amp; details fetched successfully</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>082</MSGNR>
+     <TEXT>Fetch order data and select a valid source material for this order</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>083</MSGNR>
+     <TEXT>No unused serial numbers are available for this order</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>084</MSGNR>
+     <TEXT>Remove serial rows before changing source material and fetching again</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>085</MSGNR>
+     <TEXT>Could not read serials for Loading Rejection import</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>086</MSGNR>
+     <TEXT>Serial fetching completed. &amp; new serial numbers loaded.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>087</MSGNR>
+     <TEXT>Unable to determine the user time zone</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>088</MSGNR>
+     <TEXT>Unable to read scrap items</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>089</MSGNR>
+     <TEXT>Posting request failed for order &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>090</MSGNR>
+     <TEXT>Confirmation done for order &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>091</MSGNR>
+     <TEXT> Material document posting request failed</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>092</MSGNR>
+     <TEXT>Receipt and serial numbers accepted for saving</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>093</MSGNR>
+     <TEXT>Confirmation cancellation request failed</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>094</MSGNR>
+     <TEXT>Confirmation cancelled successfully for order &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>095</MSGNR>
+     <TEXT>Material document cancellation request failed</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>096</MSGNR>
+     <TEXT> Unable to read serial numbers for cancellation</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>097</MSGNR>
+     <TEXT>Unable to mark serial numbers as cancelled</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>098</MSGNR>
+     <TEXT>Loaded serials cancelled successfully for order &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>099</MSGNR>
+     <TEXT>Select either Approved or Reject</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>100</MSGNR>
+     <TEXT>Select Reason Text for rejected serial</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>101</MSGNR>
+     <TEXT>Could not update unloading rejection remarks</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>102</MSGNR>
+     <TEXT>This serial is rejected in Loading Rejection and cannot be changed here</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZORDER_CONF</ARBGB>
+     <MSGNR>103</MSGNR>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZC_TMG_REJECT_CODE'
+@MappingRole: true
+define role ZC_TMG_REJECT_CODE {
+  grant select on ZC_TMG_REJECT_CODE
+    where inheriting conditions from entity ZR_TMG_REJECT_CODE;
+}

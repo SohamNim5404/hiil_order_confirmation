@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Service Definition for ZC_TMG_REJECT_CODE'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZC_TMG_REJECT_CODE'
+  }
+}
+define service ZUI_TMG_REJECT_CODE_O4 provider contracts odata_v4_ui {
+  expose ZC_TMG_REJECT_CODE;
+}

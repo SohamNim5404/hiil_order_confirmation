@@ -1,0 +1,89 @@
+@Metadata.layer: #CORE
+
+@UI.headerInfo: {
+  typeName: 'Rejection Code Upload',
+  typeNamePlural: 'Rejection Code Uploads',
+  title: {
+    type: #STANDARD,
+    value: 'Order_Type'
+  },
+  description: {
+    type: #STANDARD,
+    value: 'OrderTypeDescription'
+  }
+}
+
+annotate entity ZC_TMG_REJECT_HDR with
+{
+  @UI.facet: [
+    {
+      id: 'GeneralInformation',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      label: 'General Information',
+      position: 10
+    },
+    {
+      id: 'RejectionItems',
+      purpose: #STANDARD,
+      type: #LINEITEM_REFERENCE,
+      targetElement: '_Items',
+      label: 'Rejection Codes',
+      position: 20
+    }
+  ]
+
+  @EndUserText.label: 'Order Type'
+  @UI.selectionField: [{ position: 10 }]
+  @UI.lineItem: [{ position: 10 }]
+  @UI.identification: [
+    { position: 10 },
+    {
+      position: 1,
+      type: #FOR_ACTION,
+      dataAction: 'ProcessExcel',
+      label: 'Process Excel'
+    }
+  ]
+  Order_Type;
+
+  @EndUserText.label: 'Order Type Description'
+  @UI.lineItem: [{ position: 20 }]
+  @UI.identification: [{ position: 20 }]
+  OrderTypeDescription;
+
+  @EndUserText.label: 'Excel File'
+  @UI.identification: [{ position: 30 }]
+  Attachment;
+
+  @UI.hidden: true
+  MimeType;
+
+  @UI.hidden: true
+  FileName;
+
+  @EndUserText.label: 'Upload Status'
+  @UI.lineItem: [{ position: 30 }]
+  @UI.identification: [{ position: 40 }]
+  UploadStatus;
+
+  @EndUserText.label: 'Upload Message'
+  @UI.lineItem: [{ position: 40 }]
+  @UI.identification: [{ position: 50 }]
+  UploadMessage;
+
+  @UI.hidden: true
+  CreatedBy;
+
+  @UI.hidden: true
+  CreatedAt;
+
+  @UI.hidden: true
+  LastChangedBy;
+
+  @UI.hidden: true
+  LastChangedAt;
+
+  @UI.hidden: true
+  LocalLastChangedAt;
+}

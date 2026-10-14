@@ -1,0 +1,5 @@
+@EndUserText.label: 'Rejection Code Upload Service'
+define service ZSD_TMG_HDR {
+  expose ZC_TMG_REJECT_HDR  as RejectHeaders;
+  expose ZC_TMG_REJECT_CODE as RejectItems;
+}

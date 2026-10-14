@@ -1,0 +1,115 @@
+managed implementation in class zbp_r_tmg_reject_hdr unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZR_TMG_REJECT_HDR
+  alias RejectHdr
+  persistent table ztmg_reject_hdr
+  draft table ztmg_rejct_hdr_d
+ lock master total etag LastChangedAt
+  authorization master ( global )
+  etag master LocalLastChangedAt
+{
+  create;
+  update;
+  delete;
+
+  field ( mandatory : create )
+    Order_Type;
+
+  field ( readonly : update )
+    Order_Type;
+
+  field ( readonly )
+    UploadStatus,
+    UploadMessage,
+    CreatedBy,
+    CreatedAt,
+    LastChangedBy,
+    LastChangedAt,
+    LocalLastChangedAt;
+
+  association _Items
+  {
+    create;
+    with draft;
+  }
+
+  action ( authorization : update )
+  ProcessExcel result [1] $self;
+
+  side effects
+  {
+    action ProcessExcel affects
+      field UploadStatus,
+      field UploadMessage,
+      entity _Items;
+  }
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ztmg_reject_hdr
+  {
+    Order_Type             = order_type;
+    OrderTypeDescription   = order_type_description;
+    Attachment             = attachment;
+    MimeType               = mime_type;
+    FileName               = file_name;
+    UploadStatus           = upload_status;
+    UploadMessage          = upload_message;
+    CreatedBy              = created_by;
+    CreatedAt              = created_at;
+    LastChangedBy          = last_changed_by;
+    LastChangedAt          = last_changed_at;
+    LocalLastChangedAt     = local_last_changed_at;
+  }
+}
+
+define behavior for ZR_TMG_REJECT_CODE
+  alias RejectItem
+  persistent table ztmg_reject_code
+  draft table ztmg_rjct_code_d
+  lock dependent by _Header
+  authorization dependent by _Header
+  etag dependent by _Header
+{
+ update;
+  delete;
+
+  field ( readonly )
+    Order_Type,
+    CreatedBy,
+    sortsequence,
+    CreatedAt,
+    LastChangedBy,
+    LastChangedAt,
+    ITEMLocalLastChangedAt;
+
+  field ( mandatory : create )
+    RejectionCode;
+
+  field ( readonly : update )
+    RejectionCode;
+
+  association _Header
+  {
+    with draft;
+  }
+
+  mapping for ztmg_reject_code
+  {
+    Order_Type             = order_type;
+    RejectionCode          = rejection_code;
+    RejectionText          = rejection_text;
+    sortsequence          = sortsequence;
+    CreatedBy              = created_by;
+    CreatedAt              = created_at;
+    LastChangedBy          = last_changed_by;
+    LastChangedAt          = last_changed_at;
+    ITEMLocalLastChangedAt     = local_last_changed_at;
+  }
+}

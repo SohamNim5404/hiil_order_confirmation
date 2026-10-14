@@ -1,0 +1,115 @@
+@Metadata.layer: #CORE
+@UI.createHidden: true
+annotate entity ZC_SERIAL_DISPOSITION with
+{
+ @UI.facet: [
+        {
+            id: 'General',
+            purpose: #STANDARD,
+            type: #FIELDGROUP_REFERENCE,
+            targetQualifier: 'GENERAL',
+            label: 'Loaded Serial Number',
+            position: 10
+        }
+    ]
+//    @UI.lineItem: [{ position: 10 }]
+//    @UI.selectionField: [{ position: 10 }]
+//    @UI.fieldGroup: [{ qualifier: 'GENERAL', position: 10 }]
+//    @EndUserText.label: 'Confirmation ID'
+    ConfirmId;
+    
+//    @UI.hidden: true
+//SerialNo;
+
+
+ @UI.lineItem: [
+  { position: 20 },
+  {
+    position: 10,
+    type: #FOR_ACTION,
+    dataAction: 'ApproveAllItems',
+    label: 'Approve All',
+    invocationGrouping: #CHANGE_SET
+  },
+  {
+   position: 20,
+  type: #FOR_ACTION,
+  dataAction: 'UnapproveAllItems',
+  label: 'Unapprove All'
+}
+]
+@UI.fieldGroup: [{
+  qualifier: 'GENERAL',
+  position: 20
+}]
+@EndUserText.label: 'Serial Number'
+serialnodisplay;
+
+    @UI.lineItem: [{ position: 30 }]
+    @UI.selectionField: [{ position: 30 }]
+    @UI.fieldGroup: [{ qualifier: 'GENERAL', position: 30 }]
+    @EndUserText.label: 'Material'
+    Material;
+
+//    @UI.lineItem: [{ position: 40 }]
+//    @UI.selectionField: [{ position: 40 }]
+//    @UI.fieldGroup: [{ qualifier: 'GENERAL', position: 40 }]
+//    @EndUserText.label: 'Disposition'
+//    Disposition;
+
+//    @UI.lineItem: [{ position: 50 }]
+//    @UI.selectionField: [{ position: 50 }]
+//    @UI.fieldGroup: [{ qualifier: 'GENERAL', position: 50 }]
+//    @EndUserText.label: 'Order type'
+//    ReasonCode;
+//@UI.hidden: true
+//  order_type;
+
+@UI.lineItem: [
+  {
+    position: 35,
+    label: 'Approved'
+  }
+]
+Approved;
+
+@UI.lineItem: [
+  {
+    position: 40,
+    label: 'Rejected'
+  }
+]
+Rejected;
+
+    @UI.lineItem: [{ position: 60 }]
+    @UI.selectionField: [{ position: 60 }]
+    @UI.fieldGroup: [{ qualifier: 'GENERAL', position: 60 }]
+    @EndUserText.label: 'Rejection Reason'
+    ReasonText;
+
+    @UI.lineItem: [{ position: 70 }]
+    @UI.selectionField: [{ position: 70 }]
+    @UI.fieldGroup: [{ qualifier: 'GENERAL', position: 70 }]
+    @EndUserText.label: 'Type of Rejection'
+    Remarks;
+
+    @UI.lineItem: [{ position: 80 }]
+    @UI.fieldGroup: [{ qualifier: 'GENERAL', position: 80 }]
+    @EndUserText.label: 'Created By'
+    CreatedBy;
+
+    @UI.lineItem: [{ position: 90 }]
+    @UI.fieldGroup: [{ qualifier: 'GENERAL', position: 90 }]
+    @EndUserText.label: 'Created At'
+    CreatedAt;
+
+    @UI.lineItem: [{ position: 100 }]
+    @UI.fieldGroup: [{ qualifier: 'GENERAL', position: 100 }]
+    @EndUserText.label: 'Changed By'
+    ChangedBy;
+
+    @UI.lineItem: [{ position: 110 }]
+    @UI.fieldGroup: [{ qualifier: 'GENERAL', position: 110 }]
+    @EndUserText.label: 'Changed At'
+    ChangedAt;
+}

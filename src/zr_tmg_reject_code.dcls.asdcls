@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZR_TMG_REJECT_CODE'
+@MappingRole: true
+define role ZR_TMG_REJECT_CODE {
+  grant select on ZR_TMG_REJECT_CODE
+  where TRUE;
+}

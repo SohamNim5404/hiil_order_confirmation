@@ -1,0 +1,57 @@
+@Metadata.layer: #CORE
+
+@UI.presentationVariant: [{
+  sortOrder: [
+    {
+      by: 'sortsequence',
+      direction: #ASC
+    },
+    {
+      by: 'RejectionCode',
+      direction: #ASC
+    }
+  ],
+  visualizations: [{
+    type: #AS_LINEITEM
+  }]
+}]
+
+
+annotate entity ZC_TMG_REJECT_CODE with
+{
+  @UI.hidden: true
+  Order_Type;
+
+  @EndUserText.label: 'Rejection Code'
+  
+  @UI.lineItem: [{
+    position: 10,
+    label: 'Rejection Code'
+  }]
+  RejectionCode;
+
+  @EndUserText.label: 'Reason Text'
+  @UI.lineItem: [{
+    position: 20,
+    label: 'Reason Text'
+  }]
+  RejectionText;
+
+  @UI.hidden: true
+  sortsequence;
+
+  @UI.hidden: true
+  CreatedBy;
+
+  @UI.hidden: true
+  CreatedAt;
+
+  @UI.hidden: true
+  LastChangedBy;
+
+  @UI.hidden: true
+  LastChangedAt;
+
+  @UI.hidden: true
+  ItemLocalLastChangedAt;
+}

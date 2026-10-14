@@ -1,0 +1,442 @@
+managed implementation in class zbp_i_order_confirmation unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZI_ORDER_CONFIRMATION alias OrderConfirmation
+persistent table ztb__order_hdr
+with additional save
+draft table ztb_order_hdr_d
+lock master total etag ChangedAt
+authorization master ( instance )
+{
+  create;
+  update;
+  delete ( features : instance );
+
+  association _Serials { create; with draft; }
+  association _ScrapItems { create; with draft; }
+  association _Activities { create; with draft; }
+
+  field ( readonly, numbering : managed )
+  ConfirmId;
+
+  //  "Values populated by Fetch Order Data
+  field ( readonly )
+  FetchedOrderNo,
+  Material,
+  LoadedSourceMaterial,
+  mat_desc,
+  Plant,
+  batch_number,
+  unit,
+  DisplayUnit,
+  //  group_defn,
+  order_type,
+  HideMaterialSelection,
+  OrderQty,
+  ConfirmedQty,
+  confirmedscrapqty,
+  RemainingQty,
+  loadingrejectionqty,
+  ConfirmationGroup,
+  ConfirmationCount,
+  MaterialDocument,
+  MaterialDocumentYear,
+  MaterialDocumentItem,
+  SerialsPosted,
+  Status,
+  statuscriticality;
+
+
+
+  determination SetInitialStatus on modify
+  {
+    create;
+  }
+
+  determination InvalidateOrderFetch on modify
+  {
+    field OrderNo,
+    postingdate,
+    start_end_date,
+    group_defn,
+    Operation,
+    WorkCenter,
+    QtyToConfirm,
+    ScrapQty,
+    weightqty;
+  }
+
+  validation ValidateOrderFetched on save
+  {
+    create;
+    //field OrderNo;
+    //  update;
+  }
+
+  validation ValidateSourceMaterial on save
+{
+  create;
+  update;
+}
+
+  validation ValidateTotalQuantity on save
+  {
+    create;
+    update;
+  }
+
+  validation ValidateSerialCount on save
+  {
+    create;
+    update;
+    field QtyToConfirm, ScrapQty, LoadingRejectionQty;
+  }
+
+  validation ValidateLoadingRejections on save
+  {
+    create;
+    update;
+  }
+
+  //  "Technical fields
+  field ( readonly )
+  CreatedBy,
+  CreatedAt,
+  ChangedBy,
+  ChangedAt;
+
+  action FetchOrderData result [1] $self;
+  action LoadSerials result [1] $self;
+  //  action MarkAllGood result [1] $self;
+  action ( features : instance ) SubmitAndPost result [1] $self;
+  action ( features : instance ) PostMaterialDocument result [1] $self;
+  action ( features : instance ) CancelConfirmation
+    result [1] $self;
+
+  action ( features : instance ) CancelLoadedSerials
+    result [1] $self;
+  side effects
+  {
+    action FetchOrderData affects
+    field HideMaterialSelection,
+      field FetchedOrderNo,
+        field Material,
+        field mat_desc,
+        field Plant,
+        field batch_number,
+        field postingdate,
+        field start_end_date,
+        field starttime,
+        field endtime,
+        field unit,
+        field DisplayUnit,
+    //        field group_defn,
+        field order_type,
+        field OrderQty,
+        field ConfirmedQty,
+        field confirmedscrapqty,
+        field RemainingQty,
+        field loadingrejectionqty,
+       field Operation,
+        field WorkCenter,
+        entity _ScrapItems,
+        entity _Activities;
+
+    action LoadSerials affects
+      field LoadingRejectionQty,
+      entity _Serials,
+      permissions ( field _Serials.Approved ),
+      permissions ( field _Serials.Rejected ),
+      permissions ( field _Serials.ReasonCode ),
+      permissions ( field _Serials.ReasonText ),
+      permissions ( field _Serials.Remarks );
+    action SubmitAndPost affects
+        field Status,
+        field SerialsPosted,
+        field postingdate,
+        permissions ( action SubmitAndPost ),
+        permissions ( action CancelConfirmation );
+
+    action CancelConfirmation affects
+        field Status,
+        field SerialsPosted,
+        permissions ( action SubmitAndPost ),
+        permissions ( action CancelConfirmation );
+    //  action MarkAllGood affects entity _Serials;
+  }
+
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Resume;
+  draft action Discard;
+
+ draft determine action Prepare
+{
+  // validation ( always ) ValidateOrderFetched;
+
+  validation ValidateSourceMaterial;
+  validation ValidateTotalQuantity;
+
+  validation ( always ) ValidateSerialCount;
+  validation ( always ) ValidateLoadingRejections;
+  validation ( always ) SerialDisposition~ValidateLoadingSource;
+  validation ( always ) SerialDisposition~ValidateDisposition;
+}
+  mapping for ztb__order_hdr
+    {
+      ConfirmId            = confirm_id;
+      OrderNo              = order_no;
+      FetchedOrderNo       = fetched_order_no;
+      Material             = material;
+      SelectedMaterial     = selected_material;
+LoadedSourceMaterial = loaded_source_material;
+      mat_desc             = mat_desc;
+      Plant                = plant;
+      batch_number         = batch_number;
+      postingdate          = postingdate;
+      start_end_date       = start_end_date;
+      starttime            = start_time;
+      endtime             = end_time;
+      unit                 = unit;
+      DisplayUnit          = display_unit;
+      group_defn           = group_defn;
+      order_type           = order_type;
+      HideMaterialSelection = hide_material_selection;
+      OrderQty             = order_qty;
+      ConfirmedQty         = confirmed_qty;
+      confirmedscrapqty    = confirmed_scrap_qty;
+      RemainingQty         = remaining_qty;
+      Operation            = operation;
+      WorkCenter           = work_center;
+      QtyToConfirm         = qty_to_confirm;
+      ScrapQty             = scrap_qty;
+      loadingrejectionqty  = loading_rejection_qty;
+      weightqty            = weight_qty;
+      vaccumreading       = vaccum_reading;
+      vaccumdrop        = vaccum_drop;
+      ConfirmationGroup    = confirmation_group;
+      ConfirmationCount    = confirmation_count;
+      MaterialDocument     = material_document;
+      MaterialDocumentYear = material_document_year;
+      MaterialDocumentItem = material_document_item;
+      SerialsPosted        = serials_posted;
+      Status               = status;
+      statuscriticality    = statuscriticality;
+      CreatedBy            = created;
+      CreatedAt            = createdat;
+      ChangedBy            = last_changed_by;
+      ChangedAt            = last_changed_at;
+    }
+}
+
+
+define behavior for ZI_SERIAL_DISPOSITION alias SerialDisposition
+persistent table ztb_serial_dis
+draft table ztb_serial_dis_d
+lock dependent by _OrderConfirmation
+authorization dependent by _OrderConfirmation
+{
+  update ( features : instance, precheck );
+  delete ( features : instance, precheck );
+
+
+  action ( authorization : update )
+  ApproveAllItems result [1] $self;
+
+  action ( authorization : update )
+  UnapproveAllItems result [1] $self;
+
+  field ( readonly ) ConfirmId;
+  field ( readonly ) SerialNo;
+  field ( readonly ) serialnodisplay;
+  field ( readonly ) Material;
+  field ( readonly ) order_type;
+  field ( readonly ) CancelledSerialno;
+  field ( readonly ) IsLoadingRejection;
+
+  field ( readonly ) CreatedBy, CreatedAt, ChangedBy, ChangedAt;
+
+  field ( features : instance )
+    Approved,
+    Rejected,
+    ReasonCode,
+    ReasonText,
+    Remarks;
+
+  validation ValidateLoadingSource on save
+  {
+    create;
+    update;
+  }
+
+  validation validateDisposition on save
+  {
+    field Approved, Rejected, ReasonText;
+  }
+
+  determination selectApproved on modify
+  {
+    field Approved;
+  }
+
+  determination selectRejected on modify
+  {
+    field Rejected;
+  }
+
+   determination SetRejectionRemarks on modify
+  {
+    create;
+    field Rejected;
+  }
+
+
+
+   side effects
+  {
+    action ApproveAllItems affects
+      field Approved,
+      field Rejected,
+      field ReasonText,
+      field Remarks;
+
+    action UnapproveAllItems affects
+      field Approved,
+      field Rejected,
+      field ReasonText,
+      field Remarks;
+
+    field Approved affects
+      field Rejected,
+      field Remarks,
+      permissions ( field ReasonText );
+
+    field Rejected affects
+      field Approved,
+      field Remarks,
+      permissions ( field ReasonText );
+  }
+
+
+
+  association _OrderConfirmation { with draft; }
+
+  mapping for ztb_serial_dis
+    {
+      ConfirmId         = confirm_id;
+      SerialNo          = serial_no;
+      serialnodisplay   = serial_no_display;
+      Material          = material;
+      order_type        = order_type;
+      Approved          = approved;
+      Rejected          = rejected;
+      Disposition       = disposition;
+      ReasonCode        = reason_code;
+      ReasonText        = reason_text;
+      Remarks           = remarks;
+      CancelledSerialno = cancelled_ser_no;
+      IsLoadingRejection = is_loading_rejection;
+      CreatedBy         = created_by;
+      CreatedAt         = created_at;
+      ChangedBy         = changed_by;
+      ChangedAt         = changed_at;
+    }
+}
+
+
+define behavior for ZI_ORDER_SCRAP alias ScrapItem
+persistent table ztb_order_scrap
+draft table ztb_ordr_scrap_d
+lock dependent by _OrderConfirmation
+authorization dependent by _OrderConfirmation
+{
+  update;
+  delete;
+
+  //   validation ValidateScrapQuantity on save
+  //  {
+  //    create;
+  //    update;
+  //    field ScrapQty;
+  //  }
+
+  field ( readonly, numbering : managed )
+  ScrapItemId;
+
+  field ( readonly )
+  ConfirmId,
+  CreatedBy,
+  CreatedAt,
+  ChangedBy,
+  ChangedAt;
+
+  field ( mandatory : create )
+  ScrapMaterial,
+  Scrapdesc,
+  StorageLocation,
+  Scrapunit,
+  DisplayScrapUnit;
+
+
+  association _OrderConfirmation
+  {
+    with draft;
+  }
+
+  mapping for ztb_order_scrap
+    {
+      ScrapItemId      = scrap_item_id;
+      ConfirmId        = confirm_id;
+      ScrapMaterial    = scrap_material;
+      Scrapdesc        = scrap_desc;
+      StorageLocation  = storage_location;
+      ScrapQty         = scrap_qty;
+      Scrapunit        = scrap_unit;
+      displayscrapunit = displayscrap_unit;
+      CreatedBy        = created_by;
+      CreatedAt        = created_at;
+      ChangedBy        = changed_by;
+      ChangedAt        = changed_at;
+    }
+}
+
+define behavior for ZI_ORDER_ACTIVITY alias Activity
+persistent table ztb_order_act
+draft table ztb_order_act_d
+lock dependent by _OrderConfirmation
+authorization dependent by _OrderConfirmation
+{
+  update;
+  delete;
+
+  field ( readonly, numbering : managed )
+  ActivityId;
+
+  field ( readonly )
+  ConfirmId,
+  Operation,
+  ActivitySlot,
+  ActivityLabel,
+  ActivityParam,
+  ActivityName,
+  //    ActivityQty,
+  ActivityUnit,
+  DisplayActivityUnit;
+
+  association _OrderConfirmation { with draft; }
+
+  mapping for ztb_order_act
+    {
+      ActivityId          = activity_id;
+      ConfirmId           = confirm_id;
+      Operation           = operation;
+      ActivitySlot        = activity_slot;
+      ActivityLabel       = activity_label;
+      ActivityParam       = activity_param;
+      ActivityName        = activity_name;
+      ActivityQty         = activity_qty;
+      ActivityUnit        = activity_unit;
+      DisplayActivityUnit = displayactivity_unit;
+    }
+}

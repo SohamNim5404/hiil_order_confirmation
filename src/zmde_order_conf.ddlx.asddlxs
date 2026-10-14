@@ -1,0 +1,408 @@
+@Metadata.layer: #CORE
+
+@UI.headerInfo: {
+  typeName: 'Order Confirmation',
+  typeNamePlural: 'Order Confirmations',
+   typeImageUrl:
+    'https://www.clipartmax.com/png/middle/100-1009187_l-order-confirmation-comments-confirmation-icon-png.png',
+  title: {
+    type: #STANDARD,
+    value: 'OrderNo'
+  }
+//  ,
+//  imageUrl: 'ImageUrl'
+}
+
+
+
+annotate entity ZC_ORDER_CONFIRMATION with
+{
+  @UI.facet: [
+  {
+    id: 'GENERAL_TAB',
+    purpose: #STANDARD,
+    type: #COLLECTION,
+    label: 'General Information',
+    position: 10
+  },
+  {
+    id: 'GENERAL_FIELDS',
+    parentId: 'GENERAL_TAB',
+    purpose: #STANDARD,
+    type: #FIELDGROUP_REFERENCE,
+    label: 'General Information',
+    targetQualifier: 'GENERAL',
+    position: 10
+  },
+  {
+    id: 'PRODUCTION_ACTIVITY',
+    parentId: 'GENERAL_TAB',
+    purpose: #STANDARD,
+    type: #LINEITEM_REFERENCE,
+    label: 'Production Activity',
+    targetElement: '_Activities',
+    position: 15
+  },
+  {
+    id: 'SCRAP_MATERIALS',
+    parentId: 'GENERAL_TAB',
+    purpose: #STANDARD,
+    type: #LINEITEM_REFERENCE,
+    label: 'Scrap Materials',
+    targetElement: '_ScrapItems',
+    position: 20
+  },
+  {
+    id: 'SERIAL_DISPOSITION',
+    purpose: #STANDARD,
+    type: #LINEITEM_REFERENCE,
+    label: 'Loaded Serial Number',
+    targetElement: '_Serials',
+    position: 20
+  },
+  {
+  id: 'MATERIAL_SELECTION',
+  purpose: #STANDARD,
+  type: #FIELDGROUP_REFERENCE,
+  label: 'Select Material',
+  targetQualifier: 'MATERIAL_SELECTION',
+  hidden: #( 'HideMaterialSelection' ),
+  position: 15
+}
+  ]
+  @UI.identification: [
+  {
+   type: #FOR_ACTION,
+   dataAction: 'FetchOrderData',
+   label: 'Fetch Order Data',
+   position: 10
+  },
+  {
+  type: #FOR_ACTION,
+  dataAction: 'LoadSerials',
+  label: 'Fetch Serial Numbers',
+  position: 20
+  },
+  {
+  type: #FOR_ACTION,
+  dataAction: 'SubmitAndPost',
+  label: 'Post Confirmation',
+  position: 30
+  },
+ {
+   type: #FOR_ACTION,
+   dataAction: 'PostMaterialDocument',
+   label: 'Post Serial No',
+   position: 40
+  },
+  {
+    type: #FOR_ACTION,
+    dataAction: 'CancelConfirmation',
+    label: 'Cancel Confirmation',
+    position: 50
+  },
+  {
+    type: #FOR_ACTION,
+    dataAction: 'CancelLoadedSerials',
+    label: 'Cancel Loaded Serials',
+    position: 60
+  }
+  ]
+
+  //       @UI.lineItem: [{ position: 10 }]
+  //    @UI.selectionField: [{ position: 10 }]
+  //    @UI.fieldGroup: [{ qualifier: 'GENERAL', position: 10 }]
+  //    @EndUserText.label: 'Confirmation ID'
+  ConfirmId;
+  
+  @UI.fieldGroup: [{
+  qualifier: 'MATERIAL_SELECTION',
+  position: 05
+}]
+@EndUserText.label: 'Select Material'
+SelectedMaterial;
+
+  @UI.lineItem: [
+      { position: 10 }
+  ]
+  @UI.selectionField: [
+      { position: 10 }
+  ]
+  @UI.fieldGroup: [
+      { qualifier: 'GENERAL', position: 10 }
+  ]
+  @EndUserText.label: 'Order Number'
+  OrderNo;
+
+  @UI.lineItem: [
+      { position: 20 }
+  ]
+  @UI.selectionField: [
+      { position: 20 }
+  ]
+  @UI.fieldGroup: [
+      { qualifier: 'GENERAL', position: 20 }
+  ]
+  @EndUserText.label: 'Material'
+  Material;
+
+
+  @UI.lineItem: [
+        { position: 25 }
+    ]
+  @UI.selectionField: [
+      { position: 25 }
+  ]
+  @UI.fieldGroup: [
+      { qualifier: 'GENERAL', position: 25 }
+  ]
+  @EndUserText.label: 'Material Description'
+  mat_desc;
+
+  @UI.lineItem: [
+      { position: 30 }
+  ]
+  @UI.selectionField: [
+      { position: 30 }
+  ]
+  @UI.fieldGroup: [
+      { qualifier: 'GENERAL', position: 30 }
+  ]
+  @EndUserText.label: 'Plant'
+  Plant;
+
+  @UI.lineItem: [
+  { position: 33 }
+  ]
+  @UI.selectionField: [
+      { position: 33 }
+  ]
+  @UI.fieldGroup: [
+      { qualifier: 'GENERAL', position: 33 }
+  ]
+  @EndUserText.label: 'Batch'
+  batch_number;
+
+  @UI.lineItem: [
+  { position: 34 }
+  ]
+  @UI.selectionField: [
+      { position: 34 }
+  ]
+  @Consumption.filter  : { selectionType: #INTERVAL}
+  @UI.fieldGroup: [
+      { qualifier: 'GENERAL', position: 34 }
+  ]
+  @EndUserText.label: 'Start Date'
+  postingdate;
+
+//  @UI.lineItem: [
+//  { position: 35 }
+//  ]
+//  @UI.selectionField: [
+//      { position: 35 }
+//  ]
+  @UI.fieldGroup: [
+      { qualifier: 'GENERAL', position: 35 }
+  ]
+    @Consumption.filter  : { selectionType: #INTERVAL}
+  @EndUserText.label: 'End Date'
+  start_end_date;
+  
+  
+  @UI.fieldGroup: [
+      { qualifier: 'GENERAL', position: 36 }
+  ]
+    @Consumption.filter  : { selectionType: #INTERVAL}
+  @EndUserText.label: 'Start Time'
+  starttime;
+  
+  
+  @UI.fieldGroup: [
+      { qualifier: 'GENERAL', position: 37 }
+  ]
+    @Consumption.filter  : { selectionType: #INTERVAL}
+  @EndUserText.label: 'End Time'
+endtime;
+
+
+
+//
+//  @UI.lineItem: [
+//     { position: 38 }
+//  ]
+//  @UI.selectionField: [
+//      { position: 38 }
+//  ]
+  @UI.fieldGroup: [
+      { qualifier: 'GENERAL', position: 38 }
+  ]
+  @EndUserText.label: 'Order Type'
+  order_type;
+
+//  @UI.lineItem: [
+//      { position: 40 }
+//  ]
+//  @UI.selectionField: [
+//      { position: 40 }
+//  ]
+  @UI.fieldGroup: [
+      { qualifier: 'GENERAL', position: 40 }
+  ]
+  @EndUserText.label: 'Order Quantity'
+  OrderQty;
+
+
+//  @UI.lineItem: [
+//      { position: 50 }
+//  ]
+//  @UI.selectionField: [
+//      { position: 50 }
+//  ]
+  @UI.fieldGroup: [
+      { qualifier: 'GENERAL', position: 50 }
+  ]
+  @EndUserText.label: 'Already Confirmed'
+  ConfirmedQty;
+  
+  
+   @UI.fieldGroup: [
+      { qualifier: 'GENERAL', position: 53 }
+  ]
+  @EndUserText.label: 'Already Confirmed Scrap'
+  confirmedscrapqty;
+
+
+//  @UI.lineItem: [
+//        { position: 55 }
+//    ]
+//  @UI.selectionField: [
+//      { position: 55 }
+//  ]
+  @UI.fieldGroup: [
+      { qualifier: 'GENERAL', position: 55 }
+  ]
+  @EndUserText.label: 'Confirmation Unit'
+  DISPLAYUNIT;
+
+
+  @UI.lineItem: [
+    { position: 57 }
+  ]
+//  @UI.selectionField: [
+//      { position: 57 }
+//  ]
+  @UI.fieldGroup: [
+      { qualifier: 'GENERAL', position: 57 }
+  ]
+  @EndUserText.label: 'Shift Definition'
+  group_defn;
+
+
+//  @UI.lineItem: [
+//      { position: 60 }
+//  ]
+//  @UI.selectionField: [
+//      { position: 60 }
+//  ]
+  @UI.fieldGroup: [
+      { qualifier: 'GENERAL', position: 60 }
+  ]
+  @EndUserText.label: 'Remaining Quantity'
+  RemainingQty;
+
+//  @UI.lineItem: [
+//      { position: 70 }
+//  ]
+//  @UI.selectionField: [
+//      { position: 70 }
+//  ]
+  @UI.fieldGroup: [
+      { qualifier: 'GENERAL', position: 70 }
+  ]
+  @EndUserText.label: 'Operation'
+  Operation;
+
+//  @UI.lineItem: [
+//      { position: 80 }
+//  ]
+//  @UI.selectionField: [
+//      { position: 80 }
+//  ]
+  @UI.fieldGroup: [
+      { qualifier: 'GENERAL', position: 80 }
+  ]
+  @EndUserText.label: 'Work Center'
+  WorkCenter;
+
+//  @UI.lineItem: [
+//      { position: 90 }
+//  ]
+//  @UI.selectionField: [
+//      { position: 90 }
+//  ]
+  @UI.fieldGroup: [
+      { qualifier: 'GENERAL', position: 90 }
+  ]
+  @EndUserText.label: 'Quantity to Confirm'
+  QtyToConfirm;
+
+//  @UI.lineItem: [
+//      { position: 100 }
+//  ]
+//  @UI.selectionField: [
+//      { position: 100 }
+//  ]
+  @UI.fieldGroup: [
+      { qualifier: 'GENERAL', position: 100 }
+  ]
+  @EndUserText.label: 'Scrap Quantity'
+  ScrapQty;
+  
+   @UI.fieldGroup: [
+      { qualifier: 'GENERAL', position: 102 }
+  ]
+  @EndUserText.label: 'loading rejection Quantity'
+  loadingrejectionqty;
+  
+  
+    @UI.fieldGroup: [
+      { qualifier: 'GENERAL', position: 115 }
+  ]
+  @EndUserText.label: 'Confirmed Qty Wt'
+  weightqty;
+  
+      @UI.fieldGroup: [
+      { qualifier: 'GENERAL', position: 105 }
+  ]
+  @EndUserText.label: 'Vaccum reading'
+  vaccumreading;
+  
+      @UI.fieldGroup: [
+      { qualifier: 'GENERAL', position: 110 }
+  ]
+  @EndUserText.label: 'Vaccum drop'
+  vaccumdrop;
+  
+  @UI.selectionField: [
+      { position: 100 }
+  ]
+@UI.lineItem: [
+  {
+    position: 120,
+    label: 'Status',
+    criticality: 'statuscriticality'
+  }
+]
+
+@UI.fieldGroup: [
+  {
+    qualifier: 'GENERAL',
+    position: 125,
+    criticality: 'statuscriticality'
+  }
+]
+
+@EndUserText.label: 'Status'
+Status;
+}

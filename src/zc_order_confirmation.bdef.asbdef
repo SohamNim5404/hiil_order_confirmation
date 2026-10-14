@@ -1,0 +1,66 @@
+projection;
+strict ( 2 );
+use draft;
+use side effects;
+
+define behavior for ZC_ORDER_CONFIRMATION alias OrderConfirmation
+{
+  use create;
+  use update;
+  use delete;
+
+  use action FetchOrderData;
+  use action LoadSerials;
+//use action MarkAllGood;
+  use action SubmitAndPost;
+  use action PostMaterialDocument;
+  use action CancelConfirmation;
+use action CancelLoadedSerials;
+
+  use action Edit;
+  use action Activate;
+  use action Resume;
+  use action Discard;
+  use action Prepare;
+
+   use association _Serials { create; with draft; }
+   use association _ScrapItems {   create;   with draft;}
+     use association _Activities
+  {
+  create;
+    with draft;
+  }
+}
+
+
+define behavior for ZC_SERIAL_DISPOSITION alias SerialDisposition
+{
+  use update;
+  use delete;
+
+ use action ApproveAllItems;
+ use action UnapproveAllItems;
+
+
+
+   use association _OrderConfirmation { with draft; }
+}
+
+define behavior for ZC_ORDER_SCRAP alias ScrapItem
+{
+  use update;
+  use delete;
+
+  use association _OrderConfirmation {
+    with draft;
+  }
+}
+
+define behavior for ZC_ORDER_ACTIVITY alias Activity
+{
+ use update;
+  use association _OrderConfirmation
+  {
+    with draft;
+  }
+}

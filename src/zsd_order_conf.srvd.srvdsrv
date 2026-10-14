@@ -1,0 +1,8 @@
+@EndUserText.label: 'Service definition'
+define service ZSD_ORDER_CONF {
+  expose ZC_ORDER_CONFIRMATION as OrderConfirmation;
+  expose ZC_SERIAL_DISPOSITION as SerialDisposition;
+  expose ZC_ORDER_SCRAP        as OrderScrap;
+  expose ZC_ORDER_ACTIVITY     as OrderActivity;
+  expose ZI_OC_MATERIAL_VH     as SerialSourceMaterials;
+}
